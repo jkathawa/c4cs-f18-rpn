@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
 import operator
-
+from termcolor import colored
 
 operators = {
     '+': operator.add,
     '-': operator.sub,
     '*': operator.mul,
     '/': operator.truediv,
+    '^': operator.pow
 }
 
 def calculate(myarg):
@@ -30,7 +31,13 @@ def calculate(myarg):
 def main():
     while True:
         result = calculate(input("rpn calc> "))
-        print("Result: ", result)
+        print("Result: ")
+        if result >= 0:
+            text = colored(result, 'green')
+            print(text)
+        else:
+            text = colored(result, 'red')
+            print(text)
 
 if __name__ == '__main__':
     main()
